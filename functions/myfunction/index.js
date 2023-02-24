@@ -13,7 +13,7 @@ export default async function (event, context, logger) {
   const account = {
     type: "Account",
     fields: {
-      Name: `${name}-${Date.now()}-sf deploy functions -o MyOrgAlias`,
+      Name: `${name}-${Date.now()}-Modified`,
       AccountNumber: accountNumber,
       Industry: industry,
       Type: type,
