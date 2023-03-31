@@ -6,7 +6,7 @@ export default async function (event, context, logger) {
 
   // Validate the payload params
   if (!name) {
-    throw new Error(`Please provide account name2`);
+    throw new Error(`Please provide account name345`);
   }
 
   // Define a record using the RecordFoCreate type and providing the Developer Name
