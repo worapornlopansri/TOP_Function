@@ -1,0 +1,1 @@
+import"./Layout.js";import{A as t}from"./App.js";import"./CG_COI_Reporting.service.js";import"./Button.js";import"./Table.js";import"./BaseDropdown.js";import"./ReportDetailModal.js";import"./Workflow.js";import"./AvatarIcon.js";new t({target:document.getElementById("app")});

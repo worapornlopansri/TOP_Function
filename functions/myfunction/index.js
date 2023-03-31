@@ -6,10 +6,10 @@ export default async function (event, context, logger) {
 
   // Validate the payload params
   if (!name) {
-    throw new Error(`Please provide account name`);
+    throw new Error(`Please provide account name2`);
   }
 
-  // Define a record using the RecordForCreate type and providing the Developer Name
+  // Define a record using the RecordFoCreate type and providing the Developer Name
   const account = {
     type: "Account",
     fields: {

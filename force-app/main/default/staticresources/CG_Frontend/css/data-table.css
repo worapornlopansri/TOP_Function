@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'data-table';
+  src: url('../fonts/data-table.woff?orgId=00D2v000003OMdM') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^=datatable-icon-]:before, [class*=datatable-icon-]:before {
+  font-family: 'data-table' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-feature-settings: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.datatable-icon-prev, .datatable-icon-left, .datatable-icon-right, .datatable-icon-skip {
+  font-size: 20px;
+  line-height: 20px;
+  padding: 0 3px;
+}
+
+.datatable-icon-prev:before {
+  content: '\72';
+}
+
+.datatable-icon-left:before {
+  content: '\6f';
+}
+
+.datatable-icon-right:before {
+  content: '\70';
+}
+
+.datatable-icon-skip:before {
+  content: '\71';
+}

@@ -1,0 +1,25 @@
+.homeLanding,
+.homeLanding .flexipagePage,
+.homeLanding .row-main,
+.homeLanding .region-main,
+.homeLanding [data-component-id="flexipage_visualforcePage"],
+.homeLanding .slds-card,
+.homeLanding .slds-card__body,
+.homeLanding .oneAlohaPage,
+.homeLanding force-aloha-page,
+.homeLanding .content.iframe-parent,
+.homeLanding .content.iframe-parent iframe {
+  height: 100%;
+}
+
+.homeLanding .flexipageCard.slds-card {
+  border-width: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.homeLanding .slds-card .slds-card__body {
+  margin: 0;
+  padding: 0;
+}
