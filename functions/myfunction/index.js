@@ -3,7 +3,7 @@ export default async function (event, context, logger) {
 
   // Extract properties from payload
   const { name, accountNumber, industry, type, website } = event.data;
-
+//test may
   // Validate the payload params
   if (!name) {
     throw new Error(`Please provide account name345`);
