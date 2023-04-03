@@ -36,3 +36,7 @@ export default async function (event, context, logger) {
     throw new Error(errorMessage);
   }
 }
+
+function myData() { 
+  return 123; 
+} 
