@@ -1,9 +1,9 @@
 export default async function (event, context, logger) {
   logger.info(`Invoking salesforcesdkjs function with payload ${JSON.stringify(event.data || {})}`);
-
+  //test test 4/3/2023
   // Extract properties from payload
   const { name, accountNumber, industry, type, website } = event.data;
-
+//test may
   // Validate the payload params
   if (!name) {
     throw new Error(`Please provide account name345`);
@@ -42,3 +42,4 @@ function myData() {
   return '23'; 
 } 
 // Test
+//test 4Apr23
