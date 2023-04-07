@@ -13,8 +13,8 @@ export default async function (event, context, logger) {
   const account = {
     type: "Account",
     fields: {
-      Name: `${name}-${Date.now()}-Modified123`,
-      AccountNumber: accountNumber,
+      Name: `${name}-${Date.now()}`,
+      AccountNumber: `${accountNumber}`,
       Industry: `${industry}`,
       Type: type,
       Website: website,
