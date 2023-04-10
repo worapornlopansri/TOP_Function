@@ -1,20 +1,20 @@
 export default async function (event, context, logger) {
   logger.info(`Invoking salesforcesdkjs function with payload ${JSON.stringify(event.data || {})}`);
-  //test test 4/3/2023
+
   // Extract properties from payload
   const { name, accountNumber, industry, type, website } = event.data;
-//test may
+
   // Validate the payload params
   if (!name) {
-    throw new Error(`Please provide account name345`);
+    throw new Error(`Please provide account name`);
   }
 
-  // Define a record using the RecordFoCreate type and providing the Developer Name
+  // Define a record using the RecordForCreate type and providing the Developer Name
   const account = {
     type: "Account",
     fields: {
       Name: `${name}-${Date.now()}`,
-      //AccountNumber: `${accountNumber}`,
+      //AccountNumber: accountNumber,
       Industry: industry,
       Type: type,
       Website: website,
@@ -29,15 +29,10 @@ export default async function (event, context, logger) {
     const soql = `SELECT Fields(STANDARD) FROM Account WHERE Id = '${recordId}'`;
     const queryResults = await context.org.dataApi.query(soql);
     return queryResults;
-    //return myData();
   } catch (err) {
     // Catch any DML errors and pass the throw an error with the message
     const errorMessage = `Failed to insert record. Root Cause: ${err.message}`;
     logger.error(errorMessage);
     throw new Error(errorMessage);
   }
-}
-
-function queryResults() { 
-  return queryResults; 
 }
