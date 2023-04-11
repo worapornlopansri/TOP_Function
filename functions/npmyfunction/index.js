@@ -1,33 +1,30 @@
+/**
+ * Returns accounts and its contacts by keyword.
+ *
+ * The exported method is the entry point for your code when the function is invoked.
+ *
+ * Following parameters are pre-configured and provided to your function on execution:
+ * @param event: represents the data associated with the occurrence of an event, and
+ *                 supporting metadata about the source of that occurrence.
+ * @param context: represents the connection to Functions and your Salesforce org.
+ * @param logger: logging handler used to capture application logs and trace specifically
+ *                 to a given execution of a function.
+ */
 export default async function (event, context, logger) {
-  logger.info(`Invoking salesforcesdkjs function with payload ${JSON.stringify(event.data || {})}`);
-  //test test 4/3/2023
-  // Extract properties from payload
-  const { id, name, accountNumber, industry, type, website } = event.data;
-//test may
-  // Validate the payload params
-  if (!name) {
-    throw new Error(`Please provide account name345`);
+  logger.info(
+    `Invoking datapiqueryjs Function with payload ${JSON.stringify(
+      event.data || {}
+    )}`
+  );
+
+  const keyword = event.data.keyword;
+  if (!keyword || typeof keyword !== "string") {
+    throw new Error("Please specify a keyword to search accounts");
   }
 
-  // Define a record using the RecordFoCreate type and providing the Developer Name
-  const account = {
-    type: "Account",
-    fields: {
-      id : id,
-      Name: `${name}-${Date.now()}`,
-    },
-  };
-
-  try {
-    // Insert the record using the SalesforceSDK DataApi and get the new Record Id from the result
-    const UpdateAccount = await context.org.dataApi.update(account);
-
-    return UpdateAccount;
-  } catch (err) {
-    // Catch any DML errors and pass the throw an error with the message
-    const errorMessage = `Failed to insert record. Root Cause: ${err.message}`;
-    logger.error(errorMessage);
-    throw new Error(errorMessage);
-    return errorMessage;
-  }
+  const results = await context.org.dataApi.query(
+    `SELECT Id, Name, (SELECT Name, Email FROM Contacts) FROM Account WHERE Name LIKE '%${keyword}%'`
+  );
+  logger.info(JSON.stringify(results));
+  return results;
 }
