@@ -17,13 +17,8 @@ export default async function (event, context, logger) {
     )}`
   );
 
-  const keyword = event.data.keyword;
-  if (!keyword || typeof keyword !== "string") {
-    throw new Error("Please specify a keyword to search accounts");
-  }
-
   const results = await context.org.dataApi.query(
-    `SELECT Application__c, Status__c, Subject__c FROM OPP_Notification__c WHERE Subject__c LIKE '%${keyword}%'`
+    `SELECT Application__c, Status__c, Subject__c FROM OPP_Notification__c
   );
   logger.info(JSON.stringify(results));
   return results;
