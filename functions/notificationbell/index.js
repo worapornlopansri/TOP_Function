@@ -1,5 +1,5 @@
 /**
- * Describe Notificationbell here.
+ * Returns accounts and its contacts by keyword.
  *
  * The exported method is the entry point for your code when the function is invoked.
  *
@@ -11,11 +11,20 @@
  *                 to a given execution of a function.
  */
 export default async function (event, context, logger) {
-  logger.info(`Invoking Notificationbell with payload ${JSON.stringify(event.data || {})}`);
+  logger.info(
+    `Invoking datapiqueryjs Function with payload ${JSON.stringify(
+      event.data || {}
+    )}`
+  );
 
-  const results = await context.org.dataApi.query('Application__c, Status__c, Subject__c FROM OPP_Notification__c');
+  const keyword = event.data.keyword;
+  if (!keyword || typeof keyword !== "string") {
+    throw new Error("Please specify a keyword to search accounts");
+  }
 
+  const results = await context.org.dataApi.query(
+    `SELECT Application__c, Status__c, Subject__c FROM OPP_Notification__c WHERE Subject__c LIKE '%${keyword}%'`
+  );
   logger.info(JSON.stringify(results));
-
   return results;
 }
