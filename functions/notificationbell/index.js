@@ -13,7 +13,7 @@
 export default async function (event, context, logger) {
   logger.info(`Invoking Notificationbell with payload ${JSON.stringify(event.data || {})}`);
 
-  const results = await context.org.dataApi.query('SELECT Id, Name FROM Account');
+  const results = await context.org.dataApi.query('SELECT Application__c, Status__c, Subject__c FROM OPP_Notification__c');
 
   logger.info(JSON.stringify(results));
 
