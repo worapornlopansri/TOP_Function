@@ -16,9 +16,9 @@ export default async function (event, context, logger) {
       event.data || {}
     )}`
   );
-
+  
   const results = await context.org.dataApi.query(
-    `SELECT Application__c, Status__c, Subject__c FROM OPP_Notification__c
+    `SELECT Application__c, Status__c, Subject__c FROM OPP_Notification__c`
   );
   logger.info(JSON.stringify(results));
   return results;
