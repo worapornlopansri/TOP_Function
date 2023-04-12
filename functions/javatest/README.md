@@ -1,3 +1,0 @@
-# Javatest Function
-
-<Describe the function here>
