@@ -2,7 +2,7 @@ export default async function (event, context, logger) {
   logger.info(`Invoking salesforcesdkjs function with payload ${JSON.stringify(event.data || {})}`);
 
   // Extract properties from payload
-  const { name, accountNumber, industry, type, website } = event.data;
+  const { name, industry, type, website } = event.data;
 
   // Validate the payload params
   if (!name) {

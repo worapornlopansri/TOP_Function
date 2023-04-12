@@ -32,3 +32,9 @@ export default async function (event, context, logger) {
     return errorMessage;
   }
 }
+
+function myData() { 
+  return '23'; 
+} 
+//Test
+//test 12Apr23

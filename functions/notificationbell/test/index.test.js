@@ -4,7 +4,7 @@ import createSandbox from 'sinon/lib/sinon/create-sandbox.js';
 import execute from '../index.js';
 
 /**
- * Npmyfunction unit tests.
+ * Notificationbell unit tests.
  */
 describe('Unit Tests', () => {
   let sandbox;
@@ -54,7 +54,7 @@ describe('Unit Tests', () => {
     sandbox.restore();
   });
 
-  it('Invoke Npmyfunction', async () => {
+  it('Invoke Notificationbell', async () => {
     const results = await execute({ data: {} }, mockContext, mockLogger);
 
     expect(mockContext.org.dataApi.query.callCount).to.be.eql(1);
