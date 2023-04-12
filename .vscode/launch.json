@@ -5,6 +5,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "request": "attach",
+      "name": "Java",
+      "port": 5005,
+      "sourceRoots": []
+    },
+    {
       "name": "Launch Apex Replay Debugger",
       "type": "apex-replay",
       "request": "launch",
