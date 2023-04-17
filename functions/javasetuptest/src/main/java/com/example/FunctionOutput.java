@@ -3,13 +3,13 @@ package com.example;
 import java.util.List;
 
 public class FunctionOutput {
-  private final List<Account> accounts;
+  private final List<Approver> approvers;
 
-  public FunctionOutput(List<Account> accounts) {
-    this.accounts = accounts;
+  public FunctionOutput(List<Approver> approvers) {
+    this.approvers = approvers;
   }
 
-  public List<Account> getAccounts() {
-    return accounts;
+  public List<Approver> approvers() {
+    return approvers;
   }
 }
