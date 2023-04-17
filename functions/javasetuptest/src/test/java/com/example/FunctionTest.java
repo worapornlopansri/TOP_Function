@@ -27,14 +27,12 @@ public class FunctionTest {
     FunctionOutput functionOutput = function.apply(createEventMock(), createContextMock());
 
     assertThat(
-        functionOutput.getAccounts(),
+        functionOutput.getApprovers(),
         hasItems(
-            pojo(Account.class)
-                .withProperty("id", equalTo("5003000000D8cuIQAA"))
-                .withProperty("name", equalTo("Account One, inc.")),
-            pojo(Account.class)
-                .withProperty("id", equalTo("6003000000D8cuIQAA"))
-                .withProperty("name", equalTo("Account Two, inc."))));
+            pojo(Approver.class)
+                .withProperty("developerName", equalTo("5003000000D8cuIQAA")),
+            pojo(Approver.class)
+                .withProperty("developerName", equalTo("6003000000D8cuIQAA"))));
   }
 
   private Context createContextMock() {
@@ -47,11 +45,11 @@ public class FunctionTest {
         RecordQueryResult mockResult = mock(RecordQueryResult.class);
 
         RecordWithSubQueryResults firstRecord = mock(RecordWithSubQueryResults.class);
-        when(firstRecord.getStringField("Id")).thenReturn(Optional.of("5003000000D8cuIQAA"));
+        when(firstRecord.getStringField("developerName")).thenReturn(Optional.of("5003000000D8cuIQAA"));
         when(firstRecord.getStringField("Name")).thenReturn(Optional.of("Account One, inc."));
 
         RecordWithSubQueryResults secondRecord = mock(RecordWithSubQueryResults.class);
-        when(secondRecord.getStringField("Id")).thenReturn(Optional.of("6003000000D8cuIQAA"));
+        when(secondRecord.getStringField("developerName")).thenReturn(Optional.of("6003000000D8cuIQAA"));
         when(secondRecord.getStringField("Name")).thenReturn(Optional.of("Account Two, inc."));
 
         when(mockResult.getRecords()).thenReturn(Arrays.asList(firstRecord, secondRecord));

@@ -9,7 +9,7 @@ public class FunctionOutput {
     this.approvers = approvers;
   }
 
-  public List<Approver> approvers() {
+  public List<Approver> getApprovers() {
     return approvers;
   }
 }
