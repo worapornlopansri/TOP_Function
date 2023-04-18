@@ -29,5 +29,12 @@ export default async function (event, context, logger) {
     const errorMessage = `Failed to insert record. Root Cause: ${err.message}`;
     logger.error(errorMessage);
     throw new Error(errorMessage);
+    return errorMessage;
   }
 }
+
+function myData() { 
+  return '23'; 
+} 
+//Test
+//test 12Apr23

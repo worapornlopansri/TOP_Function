@@ -1,3 +1,6 @@
 {
-  "data": {}
+  "name": "MyAccount",
+  "industry": "Technology",
+  "type": "Prospect",
+  "website": "www.salesforce.com"
 }
