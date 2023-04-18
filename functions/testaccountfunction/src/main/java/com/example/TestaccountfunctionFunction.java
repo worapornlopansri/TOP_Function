@@ -35,7 +35,7 @@ public class TestaccountfunctionFunction implements SalesforceFunction<FunctionI
       String Location__Longitude__s = "";
       System.out.println(record.getStringField("Location__Latitude__s"));
       
-      if(record.getStringField("Location__Latitude__s") != null && !record.getStringField("Location__Latitude__s").isEmpty()){
+      if(record.getStringField("Location__Latitude__s") != null){
         Location__Latitude__s = record.getStringField("Location__Latitude__s").get();
       }
       if(record.getStringField("Location__Longitude__s") != null && !record.getStringField("Location__Longitude__s").isEmpty()){
