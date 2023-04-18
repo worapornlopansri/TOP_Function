@@ -12,20 +12,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Describe AccountfunctionFunction here.
+ * Describe TestaccountfunctionFunction here.
  */
-public class AccountfunctionFunction implements SalesforceFunction<FunctionInput, FunctionOutput> {
-  private static final Logger LOGGER = LoggerFactory.getLogger(AccountfunctionFunction.class);
+public class TestaccountfunctionFunction implements SalesforceFunction<FunctionInput, FunctionOutput> {
+  private static final Logger LOGGER = LoggerFactory.getLogger(TestaccountfunctionFunction.class);
 
   @Override
   public FunctionOutput apply(InvocationEvent<FunctionInput> event, Context context)
       throws Exception {
 
-    List<RecordWithSubQueryResults> records =
+        List<RecordWithSubQueryResults> records =
         context.getOrg().get().getDataApi().query("SELECT Id, Name ,Location__Latitude__s,Location__Longitude__s FROM Account where  Id ='"+event.getData().getId()+"'"
         ).getRecords();
 
-        List<Account> accounts = new ArrayList<>();
+    LOGGER.info("Function successfully queried {} account records!", records.size());
+
+    List<Account> accounts = new ArrayList<>();
     for (Record record : records) {
       String id = record.getStringField("Id").get();
       String name = record.getStringField("Name").get();
@@ -45,5 +47,3 @@ public class AccountfunctionFunction implements SalesforceFunction<FunctionInput
     return new FunctionOutput(accounts);
   }
 }
-
-

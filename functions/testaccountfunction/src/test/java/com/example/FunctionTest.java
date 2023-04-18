@@ -23,7 +23,7 @@ public class FunctionTest {
 
   @Test
   public void test() throws Exception {
-    AccountfunctionFunction function = new AccountfunctionFunction();
+    TestaccountfunctionFunction function = new TestaccountfunctionFunction();
     FunctionOutput functionOutput = function.apply(createEventMock(), createContextMock());
 
     assertThat(

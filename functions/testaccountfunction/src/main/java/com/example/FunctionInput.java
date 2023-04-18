@@ -3,7 +3,6 @@ package com.example;
 public class FunctionInput {
     String id;
 
-
     public FunctionInput(String id) {
         this.id = id;
     }

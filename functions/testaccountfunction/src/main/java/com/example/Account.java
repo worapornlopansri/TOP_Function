@@ -6,6 +6,7 @@ public class Account {
     private final String Location__Latitude__s;
     private final String Location__Longitude__s;
 
+
     public Account(String id, String name, String Location__Latitude__s, String Location__Longitude__s) {
         this.id = id;
         this.name = name;
