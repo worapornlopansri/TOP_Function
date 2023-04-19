@@ -38,5 +38,5 @@ $RECYCLE.BIN/
 
 # Local environment variables
 .env
-.mvn/
+maven-wrapper.jar
 package-lock.json
