@@ -17,6 +17,12 @@ import java.util.List;
 public class PisuserFunction implements SalesforceFunction<FunctionInput, FunctionOutput> {
   private static final Logger LOGGER = LoggerFactory.getLogger(PisuserFunction.class);
 
+  /**
+   * @param event
+   * @param context
+   * @return
+   * @throws Exception
+   */
   @Override
   public FunctionOutput apply(InvocationEvent<FunctionInput> event, Context context)
       throws Exception {
@@ -30,8 +36,9 @@ public class PisuserFunction implements SalesforceFunction<FunctionInput, Functi
     for (Record record : records) {
       String id = record.getStringField("Id").get();
       String name = record.getStringField("Name").get();
-
       accounts.add(new Account(id, name));
+
+      LOGGER.debug("name===" + name);
     }
 
     return new FunctionOutput(accounts);
